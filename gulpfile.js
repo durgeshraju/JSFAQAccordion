@@ -1,7 +1,24 @@
 const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+
+// Static server
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+
+// Watch files
+gulp.task('watch', function () {
+    gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("css/*.css").on('change', browserSync.reload);
+    gulp.watch("js/*.js").on('change', browserSync.reload);
+});
 
 gulp.task('sass', function () {
   return gulp.src('scss/**/*.scss')
@@ -23,4 +40,4 @@ gulp.task('watch', function () {
   gulp.watch('js/**/*.js', gulp.series('js'));
 });
 
-gulp.task('default', gulp.parallel('sass', 'js', 'watch'));
+gulp.task('default', gulp.parallel('sass', 'js', 'browser-sync', 'watch'));
