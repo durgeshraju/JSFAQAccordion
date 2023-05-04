@@ -40,4 +40,10 @@ gulp.task('watch', function () {
   gulp.watch('js/**/*.js', gulp.series('js'));
 });
 
-gulp.task('default', gulp.parallel('sass', 'js', 'browser-sync', 'watch'));
+
+gulp.task('copy-images', function() {
+  return gulp.src('img/**/*')
+    .pipe(gulp.dest('dist/img'));
+});
+
+gulp.task('default', gulp.parallel('sass', 'js', 'copy-images', 'browser-sync', 'watch'));
