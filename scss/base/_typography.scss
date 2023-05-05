@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+$font-weights: (
+  "light": 300,
+  "regular": 400,
+  "bold": 700
+);
+
+p {
+  @include font-style("regular", 0.78, $height: 1.5);
+}
+
+.small {
+  font-size: font-size(0.8);
+  @include font-style("regular", $height: 1.2);
+}
+strong {
+  @include font-style("bold", $height: 1.2);
+}

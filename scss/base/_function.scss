@@ -1,0 +1,11 @@
+@function font-size($multiplier: 1) {
+  $base-font-size: 16px;
+  @return $base-font-size * $multiplier;
+}
+
+// Generate custom widths 10% - 100%
+@for $i from 1 through 10 {
+  .wid-#{$i}0 {
+    width: #{$i * 10%};
+  }
+}

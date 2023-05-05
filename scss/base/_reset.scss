@@ -1,0 +1,43 @@
+// Reset all styles to default
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, button {
+  font-family: $body-font-famaily;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;  
+  vertical-align: baseline;
+  border: 0 none;
+}
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+// Remove list styles
+ul, ol {
+  list-style: none;
+}
+
+// Set the box-sizing property to border-box
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+// Set default background and text colors
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#A067E9, #7C65E7);
+  font-family: var(--font-style);
+  color: $black;  
+  min-height: 100vh;
+}
+@media (max-width: 1064px){
+body {
+    display: block;
+    height: auto;
+    padding-top: 12em;
+    padding-bottom: 2em;
+}
+}

@@ -1,0 +1,53 @@
+//--- Mixins
+
+//-- Fonts props... fw, lh, fs
+@mixin font-weight($weight) {
+  $value: map-get($font-weights, $weight);
+  font-weight: $value;
+}
+
+@mixin line-height($height) {
+  line-height: $height;
+}
+
+@mixin font-style($weight, $multiplier: null, $height: null) {
+  @include font-weight($weight);
+  @if $multiplier {
+    font-size: font-size($multiplier);
+  }
+  @if $height {
+    @include line-height($height);
+  }
+}
+
+//-- Display flex alignments
+
+@mixin flex-alignment($justify: null, $align: null) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Margin mixin
+@mixin margin($args...) {
+  margin: $args;
+}
+
+// Padding mixin
+@mixin padding($args...) {
+  padding: $args;
+}
+
+// Box shadows
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;       
+          box-shadow: $shadow;
+}
+
+// Border radius
+@mixin border-radius($radius...) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;       
+          border-radius: $radius;
+}
