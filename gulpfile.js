@@ -47,3 +47,6 @@ gulp.task('copy-images', function() {
 });
 
 gulp.task('default', gulp.parallel('sass', 'js', 'copy-images', 'browser-sync', 'watch'));
+
+// New build task for deployment
+gulp.task('build', gulp.parallel('sass', 'js', 'copy-images'));
