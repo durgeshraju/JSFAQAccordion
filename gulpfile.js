@@ -46,7 +46,12 @@ gulp.task('copy-images', function() {
     .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('default', gulp.parallel('sass', 'js', 'copy-images', 'browser-sync', 'watch'));
+gulp.task('copy-html', function() {
+  return gulp.src('*.html')
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', gulp.parallel('sass', 'js', 'copy-images', 'copy-html', 'browser-sync', 'watch'));
 
 // New build task for deployment
 gulp.task('build', gulp.parallel('sass', 'js', 'copy-images'));
