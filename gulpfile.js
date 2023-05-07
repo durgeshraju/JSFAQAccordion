@@ -8,7 +8,7 @@ const concat = require('gulp-concat');
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "dist"
         }
     });
 });
@@ -51,7 +51,12 @@ gulp.task('copy-html', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', gulp.parallel('sass', 'js', 'copy-images', 'copy-html', 'browser-sync', 'watch'));
+gulp.task('copy-json', function() {
+  return gulp.src('*.json')
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', gulp.parallel('sass', 'js', 'copy-images', 'copy-html', 'copy-json', 'browser-sync', 'watch'));
 
 // New build task for deployment
 gulp.task('build', gulp.parallel('sass', 'js', 'copy-images'));
